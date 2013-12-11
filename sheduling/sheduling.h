@@ -1,3 +1,7 @@
+typedef struct Process{
+	int priority;
+	int eTime;
+} Process;
 typedef struct Node{
 	void* data;
 	struct Node* previous;
@@ -13,3 +17,6 @@ int insert(List* list, int index, void* data);
 int remove(List* list, int index);
 int findIndex(List* list, void* data);
 int getLength(List* list);
+int schedule(void *data);
+
+int getTime(Process* p);

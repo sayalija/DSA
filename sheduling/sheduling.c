@@ -1,7 +1,5 @@
-#include "linkedList.h"
-#include <string.h>
+#include "sheduling.h"
 #include <stdlib.h>
-
 List* create(){
 	List* list = calloc(1, sizeof(List));
 	list->head = NULL;
@@ -41,6 +39,6 @@ int insert(List* list, int index, void* data){
 	return insertNode(node, nodeToAdd, list);
 }
 
-int getLength(List* list){
-	return list->numberOfElements;	
+int getTime(Process* p){
+	return p->eTime;
 }

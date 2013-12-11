@@ -89,19 +89,9 @@ int main(){
 		test_8_insert_a_node_at_first_of_char_type();
 	tearDown();
 	testEnded();
-	testStarted("test_9_insert_a_node_at_last_of_char_type");
+	testStarted("test_9_to_insert");
 	setup();
-		test_9_insert_a_node_at_last_of_char_type();
-	tearDown();
-	testEnded();
-	testStarted("test_10_get_length_of_linkedList");
-	setup();
-		test_10_get_length_of_linkedList();
-	tearDown();
-	testEnded();
-	testStarted("test_11_get_length_of_linkedList");
-	setup();
-		test_11_get_length_of_linkedList();
+		test_9_to_insert();
 	tearDown();
 	testEnded();
 
