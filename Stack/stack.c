@@ -20,8 +20,10 @@ int isEmpty(Stack* s){
 
 int push(Stack* s, void* element){
 	int address;
-	if(isFull(s))
-		return 0;
+	if(isFull(s)){
+		s->elements = realloc(s->elements, s->maxSize*s->elementSize);
+		s->maxSize += s->maxSize; 
+	}
 	s->top++;
 	address = s->top*s->elementSize;
 	memcpy(s->elements+address, element, s->elementSize);

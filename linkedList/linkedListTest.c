@@ -11,7 +11,7 @@ void test_1_create_linledList_object(){
 	ASSERT(list->numberOfElements == 0);
 }
 
-void test_2_insert_a_node_at_first_of_integer_type(){
+void test_2_insert_a_node_of_integer_type_at_first(){
 	int result;
 	List* list = create();
 	int element = 3;
@@ -21,7 +21,7 @@ void test_2_insert_a_node_at_first_of_integer_type(){
 	ASSERT(list->numberOfElements == 1);
 }
 
-void test_3_insert_a_node_at_last_of_integer_type(){
+void test_3_insert_a_node_of_integer_type_at_last(){
 	int result;
 	List* list = create();
 	int element = 3;
@@ -31,7 +31,7 @@ void test_3_insert_a_node_at_last_of_integer_type(){
 	ASSERT(list->numberOfElements == 2);
 }
 
-void test_4_insert_a_node_at_first_of_float_type(){
+void test_4_insert_a_node_of_float_type_at_first(){
 	int result;
 	List* list = create();
 	float element = 3.3;
@@ -41,7 +41,7 @@ void test_4_insert_a_node_at_first_of_float_type(){
 	ASSERT(list->numberOfElements == 1);
 }
 
-void test_5_insert_a_node_at_last_of_float_type(){
+void test_5_insert_a_node_of_float_type_at_last(){
 	int result;
 	List* list = create();
 	float element = 3.3;
@@ -51,7 +51,7 @@ void test_5_insert_a_node_at_last_of_float_type(){
 	ASSERT(list->numberOfElements == 2);
 }
 
-void test_6_insert_a_node_at_first_of_double_type(){
+void test_6_insert_a_node_of_double_type_at_first(){
 	int result;
 	List* list = create();
 	double element = 3.6;
@@ -61,7 +61,7 @@ void test_6_insert_a_node_at_first_of_double_type(){
 	ASSERT(list->numberOfElements == 1);
 }
 
-void test_7_insert_a_node_at_last_of_double_type(){
+void test_7_insert_a_node_of_double_type_at_last(){
 	int result;
 	List* list = create();
 	double element = 3.6;
@@ -71,7 +71,7 @@ void test_7_insert_a_node_at_last_of_double_type(){
 	ASSERT(list->numberOfElements == 2);
 }
 
-void test_8_insert_a_node_at_first_of_char_type(){
+void test_8_insert_a_node_of_char_type_at_first(){
 	int result;
 	List* list = create();
 	char *element = malloc(sizeof(char));
@@ -83,7 +83,7 @@ void test_8_insert_a_node_at_first_of_char_type(){
 	free(element);
 }
 
-void test_9_to_insert(){
+void test_9_to_insert_in_middle(){
 	int result;
 	Node* n; 
 	List* list = create();

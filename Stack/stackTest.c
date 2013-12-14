@@ -167,7 +167,6 @@ void test_14_for_push_two_character_element_in_stack(){
 }
 
 void test_15_for_pop_a_interger_in_stack(){
-	int a[3] = {3,0,0};
 	int element = 3;
 	Stack* s = create(3, sizeof(int));
 	push(s, &element);
@@ -175,7 +174,6 @@ void test_15_for_pop_a_interger_in_stack(){
 }
 
 void test_16_for_pop_two_interger_in_stack(){
-	int a[3] = {3,4,0};
 	int first=3, second=4;
 	Stack* s = create(3, sizeof(int));
 	push(s, &first);
@@ -185,7 +183,6 @@ void test_16_for_pop_two_interger_in_stack(){
 }
 
 void test_17_for_pop_a_float_in_stack(){
-	float a[3] = {3.2f,0,0};
 	float element = 3.2f;
 	Stack* s = create(3, sizeof(float));
 	push(s, &element);
@@ -193,7 +190,6 @@ void test_17_for_pop_a_float_in_stack(){
 }
 
 void test_18_for_pop_two_float_in_stack(){
-	float a[3] = {3.2f,4.3f,0};
 	float first=3.2f, second=4.3f;
 	Stack* s = create(3, sizeof(float));
 	push(s, &first);
@@ -203,7 +199,6 @@ void test_18_for_pop_two_float_in_stack(){
 }
 
 void test_19_for_pop_a_double_in_stack(){
-	double a[3] = {3.2,0.0,0.0f};
 	double element = 3.2;
 	Stack* s = create(3, sizeof(double));
 	push(s, &element);
@@ -211,7 +206,6 @@ void test_19_for_pop_a_double_in_stack(){
 }
 
 void test_20_for_pop_two_double_in_stack(){
-	double a[3] = {3.2,4.3,0.0};
 	double first=3.2, second=4.3;
 	Stack* s = create(3, sizeof(double));
 	push(s, &first);
@@ -221,7 +215,6 @@ void test_20_for_pop_two_double_in_stack(){
 }
 
 void test_21_for_pop_a_character_in_stack(){
-	char a[3] = {'a','\0','\0'};
 	char element = 'a';
 	Stack* s = create(3, sizeof(char));
 	push(s, &element);
@@ -229,7 +222,6 @@ void test_21_for_pop_a_character_in_stack(){
 }
 
 void test_22_for_pop_two_character_in_stack(){
-	char a[3] = {'a','b','\0'};
 	char first='a', second='b';
 	Stack* s = create(3, sizeof(char));
 	push(s, &first);
@@ -239,7 +231,6 @@ void test_22_for_pop_two_character_in_stack(){
 }
 
 void test_23_for_pop_a_character_in_stack(){
-	char a[3] = {'a','\0','\0'};
 	char element = 'a';
 	Stack* s = create(3, sizeof(char));
 	push(s, &element);
@@ -247,7 +238,6 @@ void test_23_for_pop_a_character_in_stack(){
 }
 
 void test_24_for_pop_two_character_in_stack(){
-	char a[3] = {'a','b','\0'};
 	char first='a', second='b';
 	Stack* s = create(3, sizeof(char));
 	push(s, &first);
@@ -257,7 +247,6 @@ void test_24_for_pop_two_character_in_stack(){
 }
 
 void test_25_for_pop_a_character_in_stack(){
-	String a[3] = {"aaa\0","\0","\0"};
 	String element = "aaa\0";
 	Stack* s = create(3, sizeof(String));
 	push(s, element);
@@ -265,7 +254,6 @@ void test_25_for_pop_a_character_in_stack(){
 }
 
 void test_26_for_pop_two_character_in_stack(){
-	String a[3] = {"aaa","bbb","\0"};
 	String first="aaa", second="bbb";
 	Stack* s = create(3, sizeof(String));
 	push(s, &first);
@@ -275,7 +263,6 @@ void test_26_for_pop_two_character_in_stack(){
 }
 
 void test_27_for_peek_a_interger_in_stack(){
-	int a[3] = {3,0,0};
 	int element = 3;
 	Stack* s = create(3, sizeof(int));
 	push(s, &element);
@@ -283,7 +270,6 @@ void test_27_for_peek_a_interger_in_stack(){
 }
 
 void test_28_for_peek_two_interger_in_stack(){
-	int a[3] = {3,4,0};
 	int first=3, second=4;
 	Stack* s = create(3, sizeof(int));
 	push(s, &first);
@@ -292,7 +278,6 @@ void test_28_for_peek_two_interger_in_stack(){
 }
 
 void test_29_for_peek_a_float_in_stack(){
-	float a[3] = {3.2f,0,0};
 	float element = 3.2f;
 	Stack* s = create(3, sizeof(float));
 	push(s, &element);
@@ -300,7 +285,6 @@ void test_29_for_peek_a_float_in_stack(){
 }
 
 void test_30_for_peek_two_float_in_stack(){
-	float a[3] = {3.2f,4.3f,0};
 	float first=3.2f, second=4.3f;
 	Stack* s = create(3, sizeof(float));
 	push(s, &first);
@@ -309,7 +293,6 @@ void test_30_for_peek_two_float_in_stack(){
 }
 
 void test_31_for_peek_a_double_in_stack(){
-	double a[3] = {3.2,0.0,0.0f};
 	double element = 3.2;
 	Stack* s = create(3, sizeof(double));
 	push(s, &element);
@@ -317,7 +300,6 @@ void test_31_for_peek_a_double_in_stack(){
 }
 
 void test_32_for_peek_two_double_in_stack(){
-	double a[3] = {3.2,4.3,0.0};
 	double first=3.2, second=4.3;
 	Stack* s = create(3, sizeof(double));
 	push(s, &first);
@@ -326,7 +308,6 @@ void test_32_for_peek_two_double_in_stack(){
 }
 
 void test_33_for_peek_a_character_in_stack(){
-	char a[3] = {'a','\0','\0'};
 	char element = 'a';
 	Stack* s = create(3, sizeof(char));
 	push(s, &element);
@@ -343,7 +324,6 @@ void test_34_for_peek_two_character_in_stack(){
 }
 
 void test_35_for_peek_a_character_in_stack(){
-	char a[3] = {'a','\0','\0'};
 	char element = 'a';
 	Stack* s = create(3, sizeof(char));
 	push(s, &element);
@@ -351,7 +331,6 @@ void test_35_for_peek_a_character_in_stack(){
 }
 
 void test_36_for_peek_two_character_in_stack(){
-	char a[3] = {'a','b','\0'};
 	char first='a', second='b';
 	Stack* s = create(3, sizeof(char));
 	push(s, &first);
@@ -360,7 +339,6 @@ void test_36_for_peek_two_character_in_stack(){
 }
 
 void test_37_for_peek_a_character_in_stack(){
-	String a[3] = {"aaa\0","\0","\0"};
 	String element = "aaa\0";
 	Stack* s = create(3, sizeof(String));
 	push(s, element);
@@ -368,10 +346,19 @@ void test_37_for_peek_a_character_in_stack(){
 }
 
 void test_38_for_peek_two_character_in_stack(){
-	String a[3] = {"aaa","bbb","\0"};
 	String first="aaa", second="bbb";
 	Stack* s = create(3, sizeof(String));
 	push(s, &first);
 	push(s, &second);
 	ASSERT(0 == strcmp(*(String*)peek(s), "bbb"));
+}
+
+void test_39_for_push_elements_more_than_given_maxSize(){
+	int first = 3, second = 4,third = 5;
+	Stack *s = create(2, sizeof(int));
+	push(s, &first);
+	push(s, &second);
+	push(s, &third);	
+	ASSERT(5 == *(int*)peek(s));
+	ASSERT(4 == s->maxSize);
 }

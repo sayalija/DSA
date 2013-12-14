@@ -239,6 +239,11 @@ int main(){
 		test_38_for_peek_two_character_in_stack();
 	tearDown();
 	testEnded();
+	testStarted("test_39_for_push_elements_more_than_given_maxSize");
+	setup();
+		test_39_for_push_elements_more_than_given_maxSize();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

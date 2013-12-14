@@ -19,7 +19,6 @@ void test_1_for_creating_a_queue_for_integer_type(){
 	free(actual);
 }
 
-
 void test_2_for_creating_a_queue_for_float_type(){
 	float a[3] = {0.0f,0.0f,0.0f};
 	int result;
