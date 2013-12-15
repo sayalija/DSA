@@ -6,7 +6,8 @@
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
 int compareStack(Stack *src, Stack *dst){
-	if(src->top == dst->top && src->maxSize == dst->maxSize && src->elementSize == dst->elementSize)
+	if(src->top == dst->top && src->maxSize == dst->maxSize
+		&& src->elementSize == dst->elementSize)
 		return 0 == memcmp(src->elements, dst->elements, src->elementSize*(src->top+1));
 	return 0;
 }
@@ -358,7 +359,7 @@ void test_39_for_push_elements_more_than_given_maxSize(){
 	Stack *s = create(2, sizeof(int));
 	push(s, &first);
 	push(s, &second);
-	push(s, &third);	
+	push(s, &third);
 	ASSERT(5 == *(int*)peek(s));
 	ASSERT(4 == s->maxSize);
 }
