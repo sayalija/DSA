@@ -10,6 +10,6 @@ typedef struct {
 
 List* create();
 int insert(List* list, int index, void* data);
-int remove(List* list, int index);
+void* remove(List* list, int index);
 int findIndex(List* list, void* data);
 int getLength(List* list);

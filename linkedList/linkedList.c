@@ -3,44 +3,69 @@
 #include <stdlib.h>
 
 List* create(){
-	List* list = calloc(1, sizeof(List));
-	list->head = NULL;
-	list->numberOfElements = 0;
-	return list;
+    List* list = calloc(1, sizeof(List));
+    list->head = NULL;
+    list->numberOfElements = 0;
+    return list;
 }
 
-int insertFirst(Node* nodeToAdd,List* list){
-	nodeToAdd->next = list->head;
-    list->head = nodeToAdd;
+int insertInBetween(List *list,Node *nodeToInsert,Node *node,void *data){
+    nodeToInsert->next = node->next;
+    node->next = nodeToInsert;
+    nodeToInsert->previous = node;
+    list->numberOfElements++;
+    return 1;
+}
+int insertAtFirst(List *list, Node *nodeToInsert,void *data){
+    nodeToInsert->next = list->head;
+    list->head = nodeToInsert;
+    list->numberOfElements++;
+    return 1;
+};
+
+int insert(List *list, int index, void *data){
+    Node *node = list->head,*nodeToInsert;
+    int i;
+    nodeToInsert = calloc(1, sizeof(node));
+    if(index < 0 || index > list->numberOfElements)
+        return 0;
+    nodeToInsert->data = data; 
+    if(index == 0)
+        return insertAtFirst(list, nodeToInsert,data);
+    for(i = 0; i<index-1; i++)
+        node = node->next;
+    return insertInBetween(list, nodeToInsert, node, data);
+    return 1;
+};
+
+int removeFromFirst(List *list){
+    list->head = list->head->next;
+    list->numberOfElements--;
     return 1;
 }
 
-int insertNode(Node* node, Node* nodeToAdd, List* list){
-	nodeToAdd->previous = node->previous;
-	nodeToAdd->next = node;
-	node->next = nodeToAdd;
-    return 1;
+void* remove(List* list, int index){
+    int i;
+    Node* nodeToDelete;
+    Node* node;
+    nodeToDelete = list->head;
+    if(index < 0 || (!nodeToDelete)) return NULL;
+    for(i=1; i < index; i++)
+            nodeToDelete = nodeToDelete->next;
+    if(NULL == nodeToDelete->previous){
+            list->head = nodeToDelete->next;
+            list->numberOfElements--;
+            return nodeToDelete;
+    }
+    node = nodeToDelete->previous;
+    node->next = nodeToDelete->next;
+    list->numberOfElements--;
+    if(node->next!=NULL)
+            node->next->previous = node;
+    return nodeToDelete;
 }
 
-int insert(List* list, int index, void* data){
-	int i;
-	Node* node = list->head;
-	Node* nodeToAdd;
-	 if((index <= 0 )|| (index >(list->numberOfElements+1)))  return 0;
-	list->numberOfElements++;
-	nodeToAdd = calloc(1, sizeof(Node));
-	nodeToAdd->data = data;
-	if(list->head == NULL){
-		list->head = nodeToAdd;
-		return 1;
-	}
-	for(i = 0; i < index-1; i++)
-		node = node->next;
-	if(index == 1)
-		return insertFirst(nodeToAdd, list);
-	return insertNode(node, nodeToAdd, list);
-}
 
 int getLength(List* list){
-	return list->numberOfElements;	
+    return list->numberOfElements;  
 }
