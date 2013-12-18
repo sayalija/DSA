@@ -1,4 +1,4 @@
-#include "../Linkedlist/linkedList.h"
+#include "../linked-list/linkedList.h"
 typedef struct {
         List* list;
 } Stack;

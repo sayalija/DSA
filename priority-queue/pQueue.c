@@ -1,5 +1,5 @@
 #include "pQueue.h"
-#include "../linkedList/linkedList.h"
+#include "../linked-list/linkedList.h"
 #include "customType.h"
 #include <stdlib.h>
 void* createQueue(){
