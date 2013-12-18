@@ -65,7 +65,6 @@ void* remove(List* list, int index){
     return nodeToDelete;
 }
 
-
 int getLength(List* list){
     return list->numberOfElements;  
 }

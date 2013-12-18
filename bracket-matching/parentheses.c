@@ -2,6 +2,7 @@
 #include "parentheses.h"
 #include <string.h>
 #include <stdio.h>
+#include "../Stack/Stack.h"
 int matchParantheses(char* data){
 	Stack* s = create(10, sizeof(char));
 	int flag =0;
