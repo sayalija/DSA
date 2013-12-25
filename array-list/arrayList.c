@@ -83,6 +83,27 @@ int hasNext(Iterator* it){
     return 1;
 };
 
+void* getNextData(Iterator* it){
+    ArrayList* list = it->list;
+    if(!hasNext(it)) return NULL;
+    return list->base[it->position++];
+}
+
+Iterator getIterator(ArrayList* list){
+    Iterator it;
+    it.list = list;
+    it.position = 0;
+    it.hasNext = &hasNext;
+    it.next = &getNextData;
+    return it;
+}
+
+void iterate(ArrayList list, ForEach* forEach){
+    int result,index;
+    for(index = 0;index < list.length ;index++){
+            forEach(list.base[index]);
+    }
+}
 
 void dispose(ArrayList *list) {
 	free(list->base);

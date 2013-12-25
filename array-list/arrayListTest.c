@@ -121,3 +121,26 @@ void test_12_try_to_remove_a_element_which_is_not_present(){
 	result = remove(internsPtr, 0);
 	ASSERT(result == 0);
 }
+
+void test_iterator_tells_that_next_data_is_present(){
+    Iterator it;
+    insert(internsPtr, 0, &prateek);
+    it = getIterator(internsPtr);
+    ASSERT(1 == it.hasNext(&it));
+}
+
+void test_iterator_tells_that_next_data_is_not_present(){
+    Iterator it;
+    it = getIterator(internsPtr);
+    ASSERT(0 == it.hasNext(&it));
+}
+
+void test_iterator_gives_the_data_of_next_index(){
+    Iterator it;
+    insert(internsPtr, 0, &prateek);
+    insert(internsPtr, 0, &ji);
+    it = getIterator(internsPtr);
+    ASSERT(&ji == it.next(&it));
+    ASSERT(&prateek == it.next(&it));
+    ASSERT(NULL == it.next(&it));
+}

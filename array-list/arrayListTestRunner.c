@@ -109,6 +109,21 @@ int main(){
 		test_12_try_to_remove_a_element_which_is_not_present();
 	tearDown();
 	testEnded();
+	testStarted("test_iterator_tells_that_next_data_is_present");
+	setup();
+		test_iterator_tells_that_next_data_is_present();
+	tearDown();
+	testEnded();
+	testStarted("test_iterator_tells_that_next_data_is_not_present");
+	setup();
+		test_iterator_tells_that_next_data_is_not_present();
+	tearDown();
+	testEnded();
+	testStarted("test_iterator_gives_the_data_of_next_index");
+	setup();
+		test_iterator_gives_the_data_of_next_index();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
