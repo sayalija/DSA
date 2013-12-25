@@ -65,6 +65,24 @@ void* remove(List* list, int index){
     return nodeToDelete;
 }
 
+int hasNext(Iterator *it){
+    List list;
+    Node* temp;
+    list = *(List*)it-> list;
+    temp = list.head;
+    if(NULL == temp || NULL == temp->data)
+        return 0;
+    return 0;
+}
+
+Iterator getIterator(List *list){
+    Iterator it;
+    it.position = 0;
+    it.list = list;
+    it.hasNext = &hasNext;
+    return it;
+}
+
 int getLength(List* list){
     return list->numberOfElements;  
 }

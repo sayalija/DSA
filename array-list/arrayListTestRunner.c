@@ -49,64 +49,64 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_1_create_linledList_object");
+	testStarted("test_1_insert_element");
 	setup();
-		test_1_create_linledList_object();
+		test_1_insert_element();
 	tearDown();
 	testEnded();
-	testStarted("test_2_insert_a_node_of_integer_type_at_first");
+	testStarted("test_2_insert_multiple_elements");
 	setup();
-		test_2_insert_a_node_of_integer_type_at_first();
+		test_2_insert_multiple_elements();
 	tearDown();
 	testEnded();
-	testStarted("test_3_insert_a_node_of_integer_type_at_last");
+	testStarted("test_3_interns_grows_beyond_capacity");
 	setup();
-		test_3_insert_a_node_of_integer_type_at_last();
+		test_3_interns_grows_beyond_capacity();
 	tearDown();
 	testEnded();
-	testStarted("test_4_insert_a_node_of_float_type_at_first");
+	testStarted("test_4_should_not_insert_at_index_beyond_length");
 	setup();
-		test_4_insert_a_node_of_float_type_at_first();
+		test_4_should_not_insert_at_index_beyond_length();
 	tearDown();
 	testEnded();
-	testStarted("test_5_insert_a_node_of_float_type_at_last");
+	testStarted("test_5_should_not_insert_at_negative_index");
 	setup();
-		test_5_insert_a_node_of_float_type_at_last();
+		test_5_should_not_insert_at_negative_index();
 	tearDown();
 	testEnded();
-	testStarted("test_6_insert_a_node_of_double_type_at_first");
+	testStarted("test_6_insert_at_middle_should_shift_the_elements");
 	setup();
-		test_6_insert_a_node_of_double_type_at_first();
+		test_6_insert_at_middle_should_shift_the_elements();
 	tearDown();
 	testEnded();
-	testStarted("test_7_insert_a_node_of_double_type_at_last");
+	testStarted("test_7_should_not_insert_when_list_is_null");
 	setup();
-		test_7_insert_a_node_of_double_type_at_last();
+		test_7_should_not_insert_when_list_is_null();
 	tearDown();
 	testEnded();
-	testStarted("test_8_insert_a_node_of_char_type_at_first");
+	testStarted("test_8_add_a_element_to_array");
 	setup();
-		test_8_insert_a_node_of_char_type_at_first();
+		test_8_add_a_element_to_array();
 	tearDown();
 	testEnded();
-	testStarted("test_9_to_insert_in_middle");
+	testStarted("test_9_to_search_a_element");
 	setup();
-		test_9_to_insert_in_middle();
+		test_9_to_search_a_element();
 	tearDown();
 	testEnded();
-	testStarted("test_10_to_delete_first_node");
+	testStarted("test_10_to_search_a_element_which_is_not_present");
 	setup();
-		test_10_to_delete_first_node();
+		test_10_to_search_a_element_which_is_not_present();
 	tearDown();
 	testEnded();
-	testStarted("test_11_to_delete_node_from_between");
+	testStarted("test_11_remove_a_element");
 	setup();
-		test_11_to_delete_node_from_between();
+		test_11_remove_a_element();
 	tearDown();
 	testEnded();
-	testStarted("test_12_for_iterator");
+	testStarted("test_12_try_to_remove_a_element_which_is_not_present");
 	setup();
-		test_12_for_iterator();
+		test_12_try_to_remove_a_element_which_is_not_present();
 	tearDown();
 	testEnded();
 
@@ -114,10 +114,6 @@ int main(){
 	fixtureTearDown();
 	return 0;
 }
-
-void setup(){}
-
-void tearDown(){}
 
 void fixtureSetup(){}
 

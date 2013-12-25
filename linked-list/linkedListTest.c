@@ -105,13 +105,25 @@ void test_10_to_delete_first_node(){
 	ASSERT(*(int*)result->data == 4);
 }
 
-// void test_11_to_delete_node_from_between(){
-// 	int result;
-// 	List* list = create();
-// 	int first = 4, second = 5, third = 3, forth = 2;
-// 	insert(list, 0, &first);
-// 	insert(list, 0, &second);
-// 	insert(list, 0, &third);
-// 	result = remove(list, 1);
-// 	ASSERT(result == 1);
-// }
+void test_11_to_delete_node_from_between(){
+	Node* result;
+	List* list = create();
+	int first = 4, second = 5, third = 3, forth = 2;
+	insert(list, 0, &first);
+	insert(list, 0, &second);
+	insert(list, 0, &third);
+	result = remove(list, 1);
+	ASSERT(*(int*)result->data == 3);
+	insert(list, 0, &forth);
+	result = remove(list, 1);
+	ASSERT(*(int*)result->data == 2);
+}
+
+void test_12_for_iterator(){
+	Iterator it;
+	List* list = create();
+	int first = 4, second = 5, third = 3, forth = 2;
+	insert(list, 0, &first);
+	insert(list, 0, &second);
+	insert(list, 0, &third);
+}
