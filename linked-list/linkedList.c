@@ -51,38 +51,68 @@ void* remove(List* list, int index){
     nodeToDelete = list->head;
     if(index < 0 || (!nodeToDelete)) return NULL;
     for(i=1; i < index; i++)
-            nodeToDelete = nodeToDelete->next;
+        nodeToDelete = nodeToDelete->next;
     if(NULL == nodeToDelete->previous){
-            list->head = nodeToDelete->next;
-            list->numberOfElements--;
-            return nodeToDelete;
+        list->head = nodeToDelete->next;
+        list->numberOfElements--;
+        return nodeToDelete;
     }
     node = nodeToDelete->previous;
     node->next = nodeToDelete->next;
     list->numberOfElements--;
     if(node->next!=NULL)
-            node->next->previous = node;
+        node->next->previous = node;
     return nodeToDelete;
+}
+
+
+void* getNodeData(List list, int index){
+    int i = 0;
+    Node* head = list.head;
+    if(index<0 || index >= list.numberOfElements)
+        return NULL;
+    while(i < index){
+        head = head->next;
+        i++;
+    }
+    return head->data;
 }
 
 int hasNext(Iterator *it){
     List list;
-    Node* temp;
-    list = *(List*)it-> list;
-    temp = list.head;
-    if(NULL == temp || NULL == temp->data)
-        return 0;
-    return 0;
+    if(NULL == it->list) return 0;
+    list = *(List*)it->list;
+    if(it->position == list.numberOfElements) return 0;
+    return 1;
+}
+
+void* next(Iterator* it){
+    int i;
+    Node* head;
+    if(!hasNext(it)) return NULL;
+    head = ((List*)(it->list))->head;
+    for(i = 0; i<it->position; i++){
+        head = head->next;
+    };
+    it->position++;
+    return head->data;
 }
 
 Iterator getIterator(List *list){
-    Iterator it;
-    it.position = 0;
-    it.list = list;
-    it.hasNext = &hasNext;
-    return it;
+    Iterator listIterator;
+    listIterator.position = 0;
+    listIterator.list = list;
+    listIterator.hasNext = &hasNext;
+    listIterator.next = &next;
+    return listIterator;
 }
 
 int getLength(List* list){
     return list->numberOfElements;  
 }
+
+void dispose(List* list){
+    free(list->head);
+    free(list);
+}
+
