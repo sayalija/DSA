@@ -74,6 +74,11 @@ int main(){
 		test_5_to_serach_unavailable_data_in_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_6_to_delete_data_from_tree");
+	setup();
+		test_6_to_delete_data_from_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

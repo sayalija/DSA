@@ -14,6 +14,6 @@ typedef struct {
 
 Tree createTree(compare* cmp);
 int insertNode(Tree* tree, void* parentData, void* dataToInsert );
-int deleteNode(Tree* ptree, void* data);
+int deleteNode(Tree* tree, void* data);
 Iterator getChildren(Tree* tree, void* parentData);
 int search(void* tree,void* parent);

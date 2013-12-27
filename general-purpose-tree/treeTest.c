@@ -64,3 +64,17 @@ void test_5_to_serach_unavailable_data_in_tree(){
 	res = search(&tree, &child2);
 	ASSERT(0 == res);
 }
+
+void test_6_to_delete_data_from_tree(){
+	Iterator it;
+	Tree tree = createTree(&cmp);
+	int root = 3,child1 = 4,child2 = 5,res;
+	insertNode(&tree, NULL, &root);
+	insertNode(&tree, &root, &child1);
+	it = getChildren(&tree, &root);
+	ASSERT(child1 == *(int*)it.next(&it));
+	res = deleteNode(&tree, &child1);
+	ASSERT(1);
+	it = getChildren(&tree, &root);
+	ASSERT(0 == it.position);
+}

@@ -94,3 +94,34 @@ int search(void* tree,void* parent){
     	return 0;
     return 1;
 };
+
+int getIndex(List* list,void* data,compare cmp){
+    int i = 0;
+    TreeNode *tn;
+    Iterator it = getIterator(list);
+    while(it.hasNext(&it)){
+        i = i + 1;
+        tn = (TreeNode*)it.next(&it);
+        if(0 == cmp(tn->data,data))
+            return i-1;
+    }
+    return i-1;
+};
+
+int deleteNode(Tree* tree, void* data){
+    List* list;
+    int index;
+    TreeNode *node = getNode(tree,data);
+    if(node == tree->root){
+        tree->root = NULL;
+        free(node);
+        return 1;
+    }
+    list = node->children;
+    index = getIndex(list,data,tree->areEqual);
+    remove(list, index);
+    if(getLength(list) == 0)
+        (node->children->head) = NULL;
+    free(node);
+    return 1;
+};
