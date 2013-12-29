@@ -30,9 +30,13 @@ HashElement* getNewHashElement(void *key,void *dataToInsert){
 }
 
 int put(HashMap *map,void *key,void *dataToInsert){
-	int bucket = map->getHashCode(key);
-	HashElement *element = getNewHashElement(key, dataToInsert);
+	int bucket;
+	HashElement *element;
 	List* list;
+	if(NULL == map || NULL == key || NULL == dataToInsert)
+		return 0;
+	bucket = map->getHashCode(key);
+	element = getNewHashElement(key, dataToInsert);
 	list = ((ArrayList*)map->buckets)->base[bucket];
 	insert(list, 0, element);
 	return 1;
