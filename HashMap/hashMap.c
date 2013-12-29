@@ -29,13 +29,18 @@ HashElement* getNewHashElement(void *key,void *dataToInsert){
 	return element;
 }
 
+int hashing(HashMap* map, void* key){
+	int bucket = map->getHashCode(key);
+	return bucket % map->initialCapacity;
+}
+
 int put(HashMap *map,void *key,void *dataToInsert){
 	int bucket;
 	HashElement *element;
 	List* list;
 	if(NULL == map || NULL == key || NULL == dataToInsert)
 		return 0;
-	bucket = map->getHashCode(key);
+	bucket = hashing(map,key);
 	element = getNewHashElement(key, dataToInsert);
 	list = ((ArrayList*)map->buckets)->base[bucket];
 	insert(list, 0, element);
@@ -61,5 +66,19 @@ void* get(HashMap* map, void* key){
 }
 
 int removeHashElement(HashMap *map,void *key){
-	return 1;
+	List *list;
+    HashElement *element;
+    Iterator it;
+    int index = 1;
+    int hash = hashing(map,key);
+    list = ((ArrayList*)map->buckets)->base[hash];
+    it = getIterator(list);
+    while(it.hasNext(&it)){
+        element = it.next(&it);
+        if(map->cmp(element->key,key)){
+            remove(list,index);
+            return 1;
+        }
+    }
+    return 0;
 }

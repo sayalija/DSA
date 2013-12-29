@@ -27,8 +27,7 @@ void increaseCapacity(ArrayList *list) {
 	if (isFull(list)) {
 		targetCapacity = list->capacity * 2;
 		list->base = realloc(list->base, targetCapacity * sizeof(void*));
-		list->capacity = targetCapacity;
-	}	
+		list->capacity = targetCapacity;	}	
 }
 
 int insertElement(ArrayList *list, int index, void* data) {
@@ -50,7 +49,6 @@ int add(ArrayList *list,void *data){
 
 void* getElement(ArrayList *list, int index) {
 	if (index < 0 || index >= list->length) return NULL;
-
 	return list->base[index];
 }
 

@@ -28,7 +28,7 @@ void test_get_element_from_hashmap(){
 }
 
 void test_for_put_first_element_in_list(){
-    HashMap map = createHashMap(getHashCode,compareInt,10);
+	HashMap map = createHashMap(getHashCode,compareInt,10);
 	ASSERT(1 == put(&map, &emp1.id,emp1.name));  
 	ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
 }
@@ -73,8 +73,9 @@ void test_to_trying_to_get_value_from_hashmap_with_NULL_key(){
     ASSERT(0 == get(&map,NULL));
 };
 
-void test_deleting_element_having_specific_key(){
+void test_for_removing_element_from_map(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     put(&map,&emp1.id,emp1.name);
     ASSERT(1 == removeHashElement(&map,&emp1.id));
+    ASSERT(NULL == get(&map,&emp1.id));
 };
