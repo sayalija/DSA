@@ -77,7 +77,7 @@ int removeElement(ArrayList * list, int index){
 	return 1; 
 }
 
-int hasNext(Iterator* it){
+int hasNextElement(Iterator* it){
     ArrayList *list = it->list;
     if(list->length <= it->position) return 0;
     return 1;
@@ -85,7 +85,7 @@ int hasNext(Iterator* it){
 
 void* getNextData(Iterator* it){
     ArrayList* list = it->list;
-    if(!hasNext(it)) return NULL;
+    if(!hasNextElement(it)) return NULL;
     return list->base[it->position++];
 }
 
@@ -93,7 +93,7 @@ Iterator getListIterator(ArrayList* list){
     Iterator it;
     it.list = list;
     it.position = 0;
-    it.hasNext = &hasNext;
+    it.hasNext = &hasNextElement;
     it.next = &getNextData;
     return it;
 }

@@ -1,6 +1,6 @@
 #include "testUtils.h"
 #include "hashMap.h"
-
+#include <stdlib.h>
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
 typedef struct{
@@ -21,7 +21,7 @@ int compareInt(void* element1, void* element2){
 	return *(int*)element1 == *(int*)element2;
 }
 
-void test_putting_first_element_in_list(){
+void test_get_element_from_hashmap(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
-	ASSERT(1 == put(&map, &emp1.id, &emp1.name));    
+	ASSERT(NULL == get(&map,&emp1.id));
 }

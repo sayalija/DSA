@@ -49,6 +49,11 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
+	testStarted("test_get_element_from_hashmap");
+	setup();
+		test_get_element_from_hashmap();
+	tearDown();
+	testEnded();
 	testStarted("test_putting_first_element_in_list");
 	setup();
 		test_putting_first_element_in_list();
