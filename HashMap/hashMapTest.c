@@ -88,3 +88,12 @@ void test_12_to_remove_NULL_element_from_map(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
 	ASSERT(0 == removeHashElement(&map, NULL));   
 }
+
+void test_13_for_removing_element_from_map_which_have_two_elements(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+    put(&map,&emp1.id,emp1.name);
+    put(&map,&emp2.id,emp2.name);
+    ASSERT(1 == removeHashElement(&map,&emp2.id));
+    ASSERT(NULL == get(&map,&emp2.id));
+    ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
+};

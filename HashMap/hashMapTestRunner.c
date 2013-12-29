@@ -109,6 +109,11 @@ int main(){
 		test_12_to_remove_NULL_element_from_map();
 	tearDown();
 	testEnded();
+	testStarted("test_13_for_removing_element_from_map_which_have_two_elements");
+	setup();
+		test_13_for_removing_element_from_map_which_have_two_elements();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
