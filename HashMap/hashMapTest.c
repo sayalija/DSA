@@ -40,3 +40,11 @@ void test_putting_two_elements_in_the_list(){
     ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
     ASSERT(0 == strcmp(emp2.name,get(&map,&emp2.id)));
 };
+
+void test_putting_same_key_twice_should_update_the_value(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+    put(&map,&emp3.id,emp2.name);
+    put(&map,&emp3.id,emp3.name);
+    ASSERT(0 == strcmp(emp3.name,get(&map,&emp3.id)));
+    ASSERT(0 != strcmp(emp2.name,get(&map,&emp3.id)));
+};

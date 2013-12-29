@@ -64,6 +64,11 @@ int main(){
 		test_putting_two_elements_in_the_list();
 	tearDown();
 	testEnded();
+	testStarted("test_putting_same_key_twice_should_update_the_value");
+	setup();
+		test_putting_same_key_twice_should_update_the_value();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
