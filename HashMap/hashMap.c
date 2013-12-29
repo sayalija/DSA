@@ -4,8 +4,8 @@
 #include "../array-list/arrayList.h"
 
 typedef struct {
-	void* value;
-	int key;
+	void *value;
+	void *key;
 } HashElement;
 
 HashMap createHashMap(HashCodeGenerator getHashCode,Compare cmp,int initial_size){
@@ -22,7 +22,14 @@ HashMap createHashMap(HashCodeGenerator getHashCode,Compare cmp,int initial_size
 	return map;
 }
 
-int put(HashMap *map,void *key,void *dataToPut){
+int put(HashMap *map,void *key,void *dataToInsert){
+	int bucket = map->getHashCode(key);
+	HashElement *element = calloc(1, sizeof(HashElement));
+	List* list;
+	element->key = key;
+	element->value = dataToInsert;
+	list = ((ArrayList*)map->buckets)->base[bucket];
+	insert(list, 0, element);
 	return 1;
 }
 
@@ -36,7 +43,7 @@ void* get(HashMap* map, void* key){
 	it = getIterator(list);
 	while(it.hasNext(&it)){
 		element = it.next(&it);
-		if(map->cmp(element,key))
+		if(0 == map->cmp(element,key))
 			return element->value;
 	}
 	return NULL;

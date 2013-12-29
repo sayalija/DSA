@@ -1,18 +1,18 @@
 [main] hashMapTestRunner 1000 (0) exception: trapped!
-[main] hashMapTestRunner 1000 (0) exception: code 0xC0000005 at 0x4014C2
-[main] hashMapTestRunner 1000 (0) exception: ax 0xA0318E8 bx 0x401274 cx 0x1008040 dx 0x402010
-[main] hashMapTestRunner 1000 (0) exception: si 0x0 di 0x0 bp 0x244FD9C sp 0x244FD68
+[main] hashMapTestRunner 1000 (0) exception: code 0xC0000005 at 0x40150D
+[main] hashMapTestRunner 1000 (0) exception: ax 0x4012A4 bx 0x401294 cx 0xA031EB0 dx 0x402010
+[main] hashMapTestRunner 1000 (0) exception: si 0x0 di 0x0 bp 0x244FD98 sp 0x244FD84
 [main] hashMapTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
 [main] hashMapTestRunner 1000 (0) stack: Stack trace:
-[main] hashMapTestRunner 1000 (0) stack: frame 0: sp = 0x244F908, pc = 0x6100A2C3
-[main] hashMapTestRunner 1000 (0) stack: frame 1: sp = 0x244F944, pc = 0x7768B499
-[main] hashMapTestRunner 1000 (0) stack: frame 2: sp = 0x244F968, pc = 0x7768B46B
-[main] hashMapTestRunner 1000 (0) stack: frame 3: sp = 0x244FA18, pc = 0x77640133
-[main] hashMapTestRunner 1000 (0) stack: frame 4: sp = 0x244FD9C, pc = 0x40136D
-[main] hashMapTestRunner 1000 (0) stack: frame 5: sp = 0x244FDBC, pc = 0x40120D
+[main] hashMapTestRunner 1000 (0) stack: frame 0: sp = 0x244F924, pc = 0x6100A2C3
+[main] hashMapTestRunner 1000 (0) stack: frame 1: sp = 0x244F960, pc = 0x7768B499
+[main] hashMapTestRunner 1000 (0) stack: frame 2: sp = 0x244F984, pc = 0x7768B46B
+[main] hashMapTestRunner 1000 (0) stack: frame 3: sp = 0x244FA34, pc = 0x77640133
+[main] hashMapTestRunner 1000 (0) stack: frame 4: sp = 0x244FD98, pc = 0x4013C1
+[main] hashMapTestRunner 1000 (0) stack: frame 5: sp = 0x244FDBC, pc = 0x40122E
 [main] hashMapTestRunner 1000 (0) stack: frame 6: sp = 0x244FDC4, pc = 0x61004402
 [main] hashMapTestRunner 1000 (0) stack: frame 7: sp = 0x244FF50, pc = 0x61004420
-[main] hashMapTestRunner 1000 (0) stack: frame 8: sp = 0x244FF5C, pc = 0x401E1E
+[main] hashMapTestRunner 1000 (0) stack: frame 8: sp = 0x244FF5C, pc = 0x401EFE
 [main] hashMapTestRunner 1000 (0) stack: frame 9: sp = 0x244FF6C, pc = 0x40103A
 [main] hashMapTestRunner 1000 (0) stack: frame 10: sp = 0x244FF88, pc = 0x769A336A
 [main] hashMapTestRunner 1000 (0) stack: frame 11: sp = 0x244FF94, pc = 0x77669F72

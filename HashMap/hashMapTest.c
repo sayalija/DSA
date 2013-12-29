@@ -1,5 +1,6 @@
 #include "testUtils.h"
 #include "hashMap.h"
+#include <string.h>
 #include <stdlib.h>
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
@@ -24,4 +25,10 @@ int compareInt(void* element1, void* element2){
 void test_get_element_from_hashmap(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
 	ASSERT(NULL == get(&map,&emp1.id));
+}
+
+void test_putting_first_element_in_list(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+	ASSERT(1 == put(&map, &emp1.id,emp1.name));  
+	ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
 }
