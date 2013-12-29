@@ -59,3 +59,7 @@ void* get(HashMap* map, void* key){
 	}
 	return NULL;
 }
+
+int removeHashElement(HashMap *map,void *key){
+	return 1;
+}

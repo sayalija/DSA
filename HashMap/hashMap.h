@@ -10,3 +10,4 @@ typedef struct {
 HashMap createHashMap(HashCodeGenerator getHashCode,Compare cmp,int initial_size);
 int put(HashMap *map,void *key,void *dataToPut);
 void* get(HashMap* map, void* key);
+int removeHashElement(HashMap *map,void *key);

@@ -72,3 +72,9 @@ void test_to_trying_to_get_value_from_hashmap_with_NULL_key(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == get(&map,NULL));
 };
+
+void test_deleting_element_having_specific_key(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+    put(&map,&emp1.id,emp1.name);
+    ASSERT(1 == removeHashElement(&map,&emp1.id));
+};

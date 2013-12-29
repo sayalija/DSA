@@ -94,6 +94,11 @@ int main(){
 		test_to_trying_to_get_value_from_hashmap_with_NULL_key();
 	tearDown();
 	testEnded();
+	testStarted("test_deleting_element_having_specific_key");
+	setup();
+		test_deleting_element_having_specific_key();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
