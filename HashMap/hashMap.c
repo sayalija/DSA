@@ -71,7 +71,7 @@ int removeHashElement(HashMap *map,void *key){
     Iterator it;
     int index = 1;
     int hash;
-    if(NULL == map )
+    if(NULL == map || NULL == key)
     	return 0;
     hash = hashing(map,key);
     list = ((ArrayList*)map->buckets)->base[hash];

@@ -99,9 +99,14 @@ int main(){
 		test_10_for_removing_element_from_map();
 	tearDown();
 	testEnded();
-	testStarted("test_11_to_remove_elemeent_from_NULL_map");
+	testStarted("test_11_to_remove_element_from_NULL_map");
 	setup();
-		test_11_to_remove_elemeent_from_NULL_map();
+		test_11_to_remove_element_from_NULL_map();
+	tearDown();
+	testEnded();
+	testStarted("test_12_to_remove_NULL_element_from_map");
+	setup();
+		test_12_to_remove_NULL_element_from_map();
 	tearDown();
 	testEnded();
 

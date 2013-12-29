@@ -80,6 +80,11 @@ void test_10_for_removing_element_from_map(){
     ASSERT(NULL == get(&map,&emp1.id));
 };
 
-void test_11_to_remove_elemeent_from_NULL_map(){
+void test_11_to_remove_element_from_NULL_map(){
 	ASSERT(0 == removeHashElement(NULL, &emp1.id));   
+}
+
+void test_12_to_remove_NULL_element_from_map(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+	ASSERT(0 == removeHashElement(&map, NULL));   
 }
