@@ -32,3 +32,11 @@ void test_putting_first_element_in_list(){
 	ASSERT(1 == put(&map, &emp1.id,emp1.name));  
 	ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
 }
+
+void test_putting_two_elements_in_the_list(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+    put(&map,&emp1.id,emp1.name);
+    put(&map,&emp2.id,emp2.name);
+    ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
+    ASSERT(0 == strcmp(emp2.name,get(&map,&emp2.id)));
+};
