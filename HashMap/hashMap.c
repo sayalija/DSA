@@ -22,12 +22,17 @@ HashMap createHashMap(HashCodeGenerator getHashCode,Compare cmp,int initial_size
 	return map;
 }
 
-int put(HashMap *map,void *key,void *dataToInsert){
-	int bucket = map->getHashCode(key);
-	HashElement *element = calloc(1, sizeof(HashElement));
-	List* list;
+HashElement* getNewHashElement(void *key,void *dataToInsert){
+	HashElement* element = calloc(1, sizeof(HashElement));
 	element->key = key;
 	element->value = dataToInsert;
+	return element;
+}
+
+int put(HashMap *map,void *key,void *dataToInsert){
+	int bucket = map->getHashCode(key);
+	HashElement *element = getNewHashElement(key, dataToInsert);
+	List* list;
 	list = ((ArrayList*)map->buckets)->base[bucket];
 	insert(list, 0, element);
 	return 1;
