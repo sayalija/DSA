@@ -1,7 +1,7 @@
 #include "arrayList.h"
 #include <string.h>
 #include <stdlib.h>
-ArrayList create(int capacity) {
+ArrayList createList(int capacity) {
 	ArrayList list;
 	list.base = (void*)malloc(sizeof(void*) * capacity);
 	list.capacity = capacity;
@@ -31,7 +31,7 @@ void increaseCapacity(ArrayList *list) {
 	}	
 }
 
-int insert(ArrayList *list, int index, void* data) {
+int insertElement(ArrayList *list, int index, void* data) {
 	if (list == NULL) return 0;
 	if (index < 0 || index > list->length) return 0;
 	increaseCapacity(list);
@@ -44,11 +44,11 @@ int insert(ArrayList *list, int index, void* data) {
 }
 
 int add(ArrayList *list,void *data){
-		insert(list, list->length, data);
+		insertElement(list, list->length, data);
 	return 1;
 }
 
-void* get(ArrayList *list, int index) {
+void* getElement(ArrayList *list, int index) {
 	if (index < 0 || index >= list->length) return NULL;
 
 	return list->base[index];
@@ -63,7 +63,7 @@ int search(ArrayList *list, void* data, compare cmp){
 	return 0;
 }
 
-int remove(ArrayList * list, int index){
+int removeElement(ArrayList * list, int index){
   	int i;
   	void* element;
     if(index < 0 || index >= list->length) 
@@ -89,7 +89,7 @@ void* getNextData(Iterator* it){
     return list->base[it->position++];
 }
 
-Iterator getIterator(ArrayList* list){
+Iterator getListIterator(ArrayList* list){
     Iterator it;
     it.list = list;
     it.position = 0;
@@ -105,6 +105,6 @@ void iterate(ArrayList list, ForEach* forEach){
     }
 }
 
-void dispose(ArrayList *list) {
+void disposeList(ArrayList *list) {
 	free(list->base);
 }
