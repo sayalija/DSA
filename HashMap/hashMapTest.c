@@ -22,18 +22,18 @@ int compareInt(void* element1, void* element2){
 	return *(int*)element1 == *(int*)element2;
 }
 
-void test_get_element_from_hashmap(){
+void test_1_get_element_from_hashmap(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
 	ASSERT(NULL == get(&map,&emp1.id));
 }
 
-void test_for_put_first_element_in_list(){
+void test_2_for_put_first_element_in_list(){
 	HashMap map = createHashMap(getHashCode,compareInt,10);
 	ASSERT(1 == put(&map, &emp1.id,emp1.name));  
 	ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
 }
 
-void test_for_put_two_elements_in_the_list(){
+void test_3_for_put_two_elements_in_the_list(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     put(&map,&emp1.id,emp1.name);
     put(&map,&emp2.id,emp2.name);
@@ -41,7 +41,7 @@ void test_for_put_two_elements_in_the_list(){
     ASSERT(0 == strcmp(emp2.name,get(&map,&emp2.id)));
 };
 
-void test_putting_same_key_two_times_will_overwrite_value(){
+void test_4_putting_same_key_two_times_will_overwrite_value(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     put(&map,&emp3.id,emp2.name);
     put(&map,&emp3.id,emp3.name);
@@ -49,33 +49,37 @@ void test_putting_same_key_two_times_will_overwrite_value(){
     ASSERT(0 != strcmp(emp2.name,get(&map,&emp3.id)));
 };
 
-void test_to_put_value_in_NULL_hashmap(){
+void test_5_to_put_value_in_NULL_hashmap(){
     ASSERT(0 == put(NULL,&emp3.id,emp3.name));
 };
 
-void test_to_put_value_in_hashmap_with_NULL_key(){
+void test_6_to_put_value_in_hashmap_with_NULL_key(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == put(&map,NULL,emp3.name));
 };
 
-void test_to_put_value_in_hashmap_with_NULL_value(){
+void test_7_to_put_value_in_hashmap_with_NULL_value(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == put(&map,&emp3.id,NULL));
 };
 
-void test_to_trying_to_get_value_from_NULL_hashmap(){
+void test_8_to_trying_to_get_value_from_NULL_hashmap(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == get(NULL,&emp3.id));
 };
 
-void test_to_trying_to_get_value_from_hashmap_with_NULL_key(){
+void test_9_to_trying_to_get_value_from_hashmap_with_NULL_key(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == get(&map,NULL));
 };
 
-void test_for_removing_element_from_map(){
+void test_10_for_removing_element_from_map(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     put(&map,&emp1.id,emp1.name);
     ASSERT(1 == removeHashElement(&map,&emp1.id));
     ASSERT(NULL == get(&map,&emp1.id));
 };
+
+void test_11_to_remove_elemeent_from_NULL_map(){
+	ASSERT(0 == removeHashElement(NULL, &emp1.id));   
+}

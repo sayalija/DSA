@@ -70,7 +70,10 @@ int removeHashElement(HashMap *map,void *key){
     HashElement *element;
     Iterator it;
     int index = 1;
-    int hash = hashing(map,key);
+    int hash;
+    if(NULL == map )
+    	return 0;
+    hash = hashing(map,key);
     list = ((ArrayList*)map->buckets)->base[hash];
     it = getIterator(list);
     while(it.hasNext(&it)){
