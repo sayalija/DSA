@@ -84,6 +84,11 @@ int main(){
 		test_to_put_value_in_hashmap_with_NULL_value();
 	tearDown();
 	testEnded();
+	testStarted("test_to_trying_to_get_value_from_NULL_hashmap");
+	setup();
+		test_to_trying_to_get_value_from_NULL_hashmap();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

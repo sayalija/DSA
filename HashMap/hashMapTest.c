@@ -62,3 +62,8 @@ void test_to_put_value_in_hashmap_with_NULL_value(){
     HashMap map = createHashMap(getHashCode,compareInt,10);
     ASSERT(0 == put(&map,&emp3.id,NULL));
 };
+
+void test_to_trying_to_get_value_from_NULL_hashmap(){
+    HashMap map = createHashMap(getHashCode,compareInt,10);
+    ASSERT(0 == get(&map,&emp3.id));
+};
