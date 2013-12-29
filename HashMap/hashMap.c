@@ -47,6 +47,8 @@ void* get(HashMap* map, void* key){
 	Iterator it;
 	HashElement* element;
 	List* list;
+	if(NULL == map || NULL == key)
+		return NULL;
 	bucket = map->getHashCode(key);
 	list = ((ArrayList*)map->buckets)->base[bucket];
 	it = getIterator(list);
