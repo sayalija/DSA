@@ -1,6 +1,7 @@
 #include "msort.h"
 #include <stdlib.h>
-void merge(void **leftArr,void **rightArr,int lLength,int rLength,int length,void **base,Compare compare){
+void merge(void **leftArr,void **rightArr,int lLength,int length,void **base,Compare compare){
+	int rLength = length-lLength;
     void **temp = malloc(length*2*sizeof(void*));
     int index,left=0,right=0;
     for (index=0;index<length;++index)
@@ -27,7 +28,6 @@ void merge(void **leftArr,void **rightArr,int lLength,int rLength,int length,voi
     free(temp);
 };
 
-
 void msort(void **base,int length,Compare compare){
     int mid,index;
     void **leftArr,**rightArr;
@@ -43,7 +43,7 @@ void msort(void **base,int length,Compare compare){
             rightArr[index-mid] = base[index];
         msort(leftArr,mid,compare);
         msort(rightArr,length-mid,compare);
-        merge(leftArr,rightArr,mid,length-mid,length,base,compare);
+        merge(leftArr,rightArr,mid,length,base,compare);
     }
     free(leftArr);
     free(rightArr);
