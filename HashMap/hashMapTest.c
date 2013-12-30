@@ -106,7 +106,6 @@ void test_13_for_removing_element_from_map_which_have_two_elements(){
     ASSERT(1 == removeHashElement(&map,&emp2.id));
     ASSERT(NULL == get(&map,&emp2.id));
     ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
-
     disposeMap(&map);
 };
 
@@ -116,6 +115,7 @@ void test_14_get_all_keys_from_hash(){
     put(&map,&emp1.id,emp1.name);
     put(&map,&emp2.id,emp2.name);
     it = keys(&map);
+    ASSERT(1 == it.hasNext(&it));
     ASSERT(emp2.id == *(int*)it.next(&it));
     ASSERT(emp1.id == *(int*)it.next(&it));
     ASSERT(0 == it.hasNext(&it));
