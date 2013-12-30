@@ -4,19 +4,24 @@
 
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
-int compareInts(void* a, void* b){
-        return *(int*)a - *(int*)b;
-};
-void test_1_for_sorting_sorted_integer_values() {
-    int a[3] = {1,2,3};
-    int expected[3] = {1,2,3};
-    void* elements[] = {&a[0],&a[1],&a[2]}; 
-    ASSERT(expected[0] == *(int*)elements[0]);
+int compareInts(void *first,void *second){
+        return *(int*)first - *(int*)second;
+}
+
+void test_sorting_two_elements_with_merge_sort(){
+    int elements[] = {3,2},sortedElements[] = {2,3};
+    void *elementsToSort[] = {&elements[0],&elements[1]};
+    msort(elementsToSort,2,compareInts);
+    ASSERT(sortedElements[0] == *(int*)elementsToSort[0]);
+    ASSERT(sortedElements[1] == *(int*)elementsToSort[1]);
 };
 
-void test_2_for_sorting_unsorted_integer_values() {
-    int a[3] = {2,3,1};
-    int expected[3] = {1,2,3};
-    void* elements[] = {&a[0],&a[1],&a[2]}; 
-    ASSERT(expected[0] == *(int*)elements[0]);
+void test_sorting_four_elements_with_merge_sort(){
+    int elements[] = {2,3,4,1},sortedElements[] = {1,2,3,4};
+    void *elementsToSort[] = {&elements[0],&elements[1],&elements[2],&elements[3]};
+    msort(elementsToSort,4,compareInts);
+    ASSERT(sortedElements[0] == *(int*)elementsToSort[0]);
+    ASSERT(sortedElements[1] == *(int*)elementsToSort[1]);
+    ASSERT(sortedElements[2] == *(int*)elementsToSort[2]);
+    ASSERT(sortedElements[3] == *(int*)elementsToSort[3]);
 };
