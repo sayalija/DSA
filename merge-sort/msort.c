@@ -1,15 +1,15 @@
 #include "msort.h"
 #include <stdlib.h>
-void merge(void **leftArr,void **rightArr,int leftLength,int rightLength,int length,void **base,Compare compare){
+void merge(void **leftArr,void **rightArr,int lLength,int rLength,int length,void **base,Compare compare){
     void **temp = malloc(length*2*sizeof(void*));
     int index,left=0,right=0;
     for (index=0;index<length;++index)
     {
-        if(left > leftLength-1){
+        if(left > lLength-1){
             temp[index] = rightArr[right];
             right++;
         }
-        else if(right>rightLength-1){
+        else if(right>rLength-1){
             temp[index] = leftArr[left];
             left++;
         }
