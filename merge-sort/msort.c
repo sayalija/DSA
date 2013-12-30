@@ -2,24 +2,24 @@
 #include <stdlib.h>
 void merge(void **leftArr,void **rightArr,int leftLength,int rightLength,int length,void **base,Compare compare){
     void **temp = malloc(length*2*sizeof(void*));
-    int index,leftCounter=0,rightCounter=0;
+    int index,left=0,right=0;
     for (index=0;index<length;++index)
     {
-        if(leftCounter > leftLength-1){
-            temp[index] = rightArr[rightCounter];
-            rightCounter++;
+        if(left > leftLength-1){
+            temp[index] = rightArr[right];
+            right++;
         }
-        else if(rightCounter>rightLength-1){
-            temp[index] = leftArr[leftCounter];
-            leftCounter++;
+        else if(right>rightLength-1){
+            temp[index] = leftArr[left];
+            left++;
         }
-        else if(compare(leftArr[leftCounter],rightArr[rightCounter]) > 0){
-            temp[index] = rightArr[rightCounter];
-            rightCounter++;
+        else if(compare(leftArr[left],rightArr[right]) > 0){
+            temp[index] = rightArr[right];
+            right++;
         }
         else{
-            temp[index] = leftArr[leftCounter];
-            leftCounter++;
+            temp[index] = leftArr[left];
+            left++;
         }
     }
     for(index=0;index<length;index++)

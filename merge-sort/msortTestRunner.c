@@ -59,6 +59,16 @@ int main(){
 		test_sorting_four_elements_with_merge_sort();
 	tearDown();
 	testEnded();
+	testStarted("test_sorting_two_float_elements_with_merge_sort");
+	setup();
+		test_sorting_two_float_elements_with_merge_sort();
+	tearDown();
+	testEnded();
+	testStarted("test_sorting_three_float_elements_with_merge_sort");
+	setup();
+		test_sorting_three_float_elements_with_merge_sort();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
