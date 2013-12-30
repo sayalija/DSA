@@ -94,9 +94,9 @@ int main(){
 		test_9_to_trying_to_get_value_from_hashmap_with_NULL_key();
 	tearDown();
 	testEnded();
-	testStarted("test_10_for_removing_element_from_map");
+	testStarted("test_2_for_removing_element_from_map");
 	setup();
-		test_10_for_removing_element_from_map();
+		test_2_for_removing_element_from_map();
 	tearDown();
 	testEnded();
 	testStarted("test_11_to_remove_element_from_NULL_map");

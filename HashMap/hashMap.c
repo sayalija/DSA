@@ -54,7 +54,7 @@ void* get(HashMap* map, void* key){
 	List* list;
 	if(NULL == map || NULL == key)
 		return NULL;
-	bucket = map->getHashCode(key);
+	bucket = hashing(map, key);
 	list = ((ArrayList*)map->buckets)->base[bucket];
 	it = getIterator(list);
 	while(it.hasNext(&it)){
@@ -84,4 +84,17 @@ int removeHashElement(HashMap *map,void *key){
         }
     }
     return 0;
+}
+
+// Iterator keys(HashMap *map){
+
+// 	Iterator it = getIterator(map->buckets);
+// 	return it;
+// }
+
+void disposeMap(HashMap* map){
+	int i;
+	for (i = 0; i < map->initialCapacity; i++)
+		dispose(((ArrayList*)map->buckets)->base[i]);
+	disposeList(map->buckets);
 }

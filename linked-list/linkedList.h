@@ -1,4 +1,4 @@
-#include "iterator.h"
+#include "../iterator.h"
 typedef struct Node{
 	void* data;
 	struct Node* previous;
