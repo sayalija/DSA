@@ -9,19 +9,21 @@ int compareInts(void *first,void *second){
 }
 
 void test_sorting_two_elements_with_merge_sort(){
-    int elements[] = {3,2},sortedElements[] = {2,3};
-    void *elementsToSort[] = {&elements[0],&elements[1]};
-    msort(elementsToSort,2,compareInts);
-    ASSERT(sortedElements[0] == *(int*)elementsToSort[0]);
-    ASSERT(sortedElements[1] == *(int*)elementsToSort[1]);
+    int a[] = {3,2},expected[] = {2,3};
+    void *elements[] = {&a[0],&a[1]};
+    msort(elements,2,compareInts);
+    ASSERT(expected[0] == *(int*)elements[0]);
+    ASSERT(expected[1] == *(int*)elements[1]);
 };
 
 void test_sorting_four_elements_with_merge_sort(){
-    int elements[] = {2,3,4,1},sortedElements[] = {1,2,3,4};
-    void *elementsToSort[] = {&elements[0],&elements[1],&elements[2],&elements[3]};
-    msort(elementsToSort,4,compareInts);
-    ASSERT(sortedElements[0] == *(int*)elementsToSort[0]);
-    ASSERT(sortedElements[1] == *(int*)elementsToSort[1]);
-    ASSERT(sortedElements[2] == *(int*)elementsToSort[2]);
-    ASSERT(sortedElements[3] == *(int*)elementsToSort[3]);
+    int a[] = {2,3,4,1},expected[] = {1,2,3,4};
+    void *elements[] = {&a[0],&a[1],&a[2],&a[3]};
+    msort(elements,4,compareInts);
+    ASSERT(expected[0] == *(int*)elements[0]);
+    ASSERT(expected[1] == *(int*)elements[1]);
+    ASSERT(expected[2] == *(int*)elements[2]);
+    ASSERT(expected[3] == *(int*)elements[3]);
 };
+
+
