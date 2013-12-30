@@ -86,11 +86,10 @@ int removeHashElement(HashMap *map,void *key){
     return 0;
 }
 
-// Iterator keys(HashMap *map){
-
-// 	Iterator it = getIterator(map->buckets);
-// 	return it;
-// }
+Iterator keys(HashMap *map){
+	Iterator it = getIterator(map->buckets);
+	return it;
+}
 
 void disposeMap(HashMap* map){
 	int i;
