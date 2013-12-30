@@ -110,14 +110,13 @@ void test_13_for_removing_element_from_map_which_have_two_elements(){
     disposeMap(&map);
 };
 
-// void test_14_get_all_keys_from_hash(){
-//     HashMap map = createHashMap(getHashCode,compareInt,2);
-//     Iterator it;
-//     put(&map,&emp1.id,emp1.name);
-//     put(&map,&emp2.id,emp2.name);
-//     it = keys(&map);
-//     ASSERT(0 == strcmp(emp1.name, it.next(&it)));
-//     ASSERT(0 == strcmp(emp2.name, it.next(&it)));
-//     ASSERT(0 == it.hasNext(&it));
-    // disposeMap(&map);
-// };
+void test_14_get_all_keys_from_hash(){
+    HashMap map = createHashMap(getHashCode,compareInt,2);
+    Iterator it;
+    put(&map,&emp1.id,emp1.name);
+    put(&map,&emp2.id,emp2.name);
+    it = keys(&map);
+    ASSERT(emp2.id == *(int*)it.next(&it));
+    ASSERT(emp1.id == *(int*)it.next(&it));
+    ASSERT(0 == it.hasNext(&it));
+};

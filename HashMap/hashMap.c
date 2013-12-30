@@ -87,8 +87,19 @@ int removeHashElement(HashMap *map,void *key){
 }
 
 Iterator keys(HashMap *map){
-	Iterator it = getIterator(map->buckets);
-	return it;
+	Iterator arrayList;
+	Iterator linkedList;
+	Iterator result;
+	HashElement *element;
+	List *list = create();
+	arrayList = getListIterator(map->buckets);
+	while(arrayList.hasNext(&arrayList)){
+		linkedList = getIterator(arrayList.next(&arrayList));
+    	element = linkedList.next(&linkedList);
+    	insert(list, 0, element->key);
+	}
+	result = getIterator(list);
+	return result;
 }
 
 void disposeMap(HashMap* map){

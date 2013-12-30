@@ -114,6 +114,11 @@ int main(){
 		test_13_for_removing_element_from_map_which_have_two_elements();
 	tearDown();
 	testEnded();
+	testStarted("test_14_get_all_keys_from_hash");
+	setup();
+		test_14_get_all_keys_from_hash();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
