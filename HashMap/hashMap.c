@@ -22,6 +22,22 @@ HashMap createHashMap(HashCodeGenerator getHashCode,Compare cmp,int initial_size
 	return map;
 }
 
+Iterator keys(HashMap *map){
+	Iterator arrayList;
+	Iterator linkedList;
+	Iterator result;
+	HashElement *element;
+	List *list = create();
+	arrayList = getListIterator(map->buckets);
+	while(arrayList.hasNext(&arrayList)){
+		linkedList = getIterator(arrayList.next(&arrayList));
+    	element = linkedList.next(&linkedList);
+    	insert(list, 0, element->key);
+	}
+	result = getIterator(list);
+	return result;
+}
+
 HashElement* getNewHashElement(void *key,void *dataToInsert){
 	HashElement* element = calloc(1, sizeof(HashElement));
 	element->key = key;
@@ -51,6 +67,37 @@ void* get(HashMap* map, void* key){
 		}
 	}
 	return NULL;
+}
+
+void rehash(HashMap *map){
+    int i;
+    HashElement *element;
+    Iterator it = keys(map);
+    ArrayList listOfBuckets,list;
+    Iterator dllIterator = getIterator(it.list);
+    disposeMap(map);
+    map->initialCapacity = map->initialCapacity * 2;
+    list = createList(map->initialCapacity);
+    map->buckets = calloc(1,sizeof(ArrayList));
+    *(ArrayList*)map->buckets = list;
+    for(i=0;i<map->initialCapacity;i++)
+        insertElement(map->buckets, i,create());
+    while(dllIterator.hasNext(&dllIterator)){
+        element = dllIterator.next(&dllIterator);
+        put(map,element->key,element->value);
+    }
+};
+
+void rehashingIfNeeded(HashMap* hash){
+    Iterator arrayList = getListIterator(hash->buckets);
+    List* list;
+    while(arrayList.hasNext(&arrayList)){
+        list = (List*)arrayList.next(&arrayList);
+        if(list->numberOfElements == 2){
+            rehash(hash);
+            return;            
+        }
+    }
 }
 
 HashElement* isHaveSameElement(HashMap *map,void *key){
@@ -84,6 +131,7 @@ int put(HashMap *map,void *key,void *dataToInsert){
     bucket = hashing(map,key);
     list = ((ArrayList*)map->buckets)->base[bucket];
     insert(list, 0, element);
+    rehashingIfNeeded(map);
     return 1;
 }
 
@@ -106,22 +154,6 @@ int removeHashElement(HashMap *map,void *key){
         }
     }
     return 0;
-}
-
-Iterator keys(HashMap *map){
-	Iterator arrayList;
-	Iterator linkedList;
-	Iterator result;
-	HashElement *element;
-	List *list = create();
-	arrayList = getListIterator(map->buckets);
-	while(arrayList.hasNext(&arrayList)){
-		linkedList = getIterator(arrayList.next(&arrayList));
-    	element = linkedList.next(&linkedList);
-    	insert(list, 0, element->key);
-	}
-	result = getIterator(list);
-	return result;
 }
 
 void disposeMap(HashMap* map){
