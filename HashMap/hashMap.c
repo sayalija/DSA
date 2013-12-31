@@ -74,7 +74,7 @@ void rehash(HashMap *map){
     HashElement *element;
     Iterator it = keys(map);
     ArrayList listOfBuckets,list;
-    Iterator dllIterator = getIterator(it.list);
+    Iterator itList = getIterator(it.list);
     disposeMap(map);
     map->initialCapacity = map->initialCapacity * 2;
     list = createList(map->initialCapacity);
@@ -82,8 +82,8 @@ void rehash(HashMap *map){
     *(ArrayList*)map->buckets = list;
     for(i=0;i<map->initialCapacity;i++)
         insertElement(map->buckets, i,create());
-    while(dllIterator.hasNext(&dllIterator)){
-        element = dllIterator.next(&dllIterator);
+    while(itList.hasNext(&itList)){
+        element = itList.next(&itList);
         put(map,element->key,element->value);
     }
 };
