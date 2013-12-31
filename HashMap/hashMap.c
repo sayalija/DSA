@@ -34,19 +34,6 @@ int hashing(HashMap* map, void* key){
 	return bucket % map->initialCapacity;
 }
 
-int put(HashMap *map,void *key,void *dataToInsert){
-	int bucket;
-	HashElement *element;
-	List* list;
-	if(NULL == map || NULL == key || NULL == dataToInsert)
-		return 0;
-	bucket = hashing(map,key);
-	element = getNewHashElement(key, dataToInsert);
-	list = ((ArrayList*)map->buckets)->base[bucket];
-	insert(list, 0, element);
-	return 1;
-}
-
 void* get(HashMap* map, void* key){
 	int bucket;
 	Iterator it;
@@ -59,15 +46,50 @@ void* get(HashMap* map, void* key){
 	it = getIterator(list);
 	while(it.hasNext(&it)){
 		element = it.next(&it);
-		if(0 == map->cmp(element,key))
+		if(map->cmp(element->key,key)){
 			return element->value;
+		}
 	}
 	return NULL;
 }
 
+HashElement* isHaveSameElement(HashMap *map,void *key){
+    int bucket;
+    List *list;
+    HashElement *element;
+    Iterator it;
+    bucket = hashing(map,key);
+    list = ((ArrayList*)map->buckets)->base[bucket];
+    it = getIterator(list);
+    while(it.hasNext(&it)){
+        element = it.next(&it);
+        if(map->cmp(element->key,key))
+            return element;
+    }
+    return NULL;
+};
+
+int put(HashMap *map,void *key,void *dataToInsert){
+	List *list;
+    HashElement *existingElement,*element;
+    int bucket;
+    if(NULL == map || NULL == key || NULL == dataToInsert) 
+    	return 0;
+    existingElement = isHaveSameElement(map, key);
+    if(existingElement){
+        existingElement->value = dataToInsert;
+        return 1;
+    }
+    element = getNewHashElement(key, dataToInsert);
+    bucket = hashing(map,key);
+    list = ((ArrayList*)map->buckets)->base[bucket];
+    insert(list, 0, element);
+    return 1;
+}
+
 int removeHashElement(HashMap *map,void *key){
 	List *list;
-    HashElement *element;
+    HashElement *element;	
     Iterator it;
     int index = 1;
     int hash;

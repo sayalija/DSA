@@ -119,6 +119,11 @@ int main(){
 		test_14_get_all_keys_from_hash();
 	tearDown();
 	testEnded();
+	testStarted("test_15_for_put_more_than_two_elements_in_bucket");
+	setup();
+		test_15_for_put_more_than_two_elements_in_bucket();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

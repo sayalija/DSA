@@ -12,7 +12,7 @@ typedef struct{
 Emp emp1 = {10,"Sayali"};
 Emp emp2 = {11,"Gauri"};
 Emp emp3 = {12,"Aarti"};
-Emp emp4 = {13,"Bhagyashree"};
+Emp emp4 = {18,"Bhagyashree"};
 
 int getHashCode(void* key){
 	return *(int*)key;
@@ -119,4 +119,15 @@ void test_14_get_all_keys_from_hash(){
     ASSERT(emp2.id == *(int*)it.next(&it));
     ASSERT(emp1.id == *(int*)it.next(&it));
     ASSERT(0 == it.hasNext(&it));
+};
+
+void test_15_for_put_more_than_two_elements_in_bucket(){
+    HashMap map = createHashMap(getHashCode,compareInt,2);
+    put(&map,&emp1.id,emp1.name);
+    put(&map,&emp4.id,emp4.name);
+    put(&map,&emp3.id,emp3.name);
+    ASSERT(0 == strcmp(emp1.name,get(&map,&emp1.id)));
+    ASSERT(0 == strcmp(emp4.name,get(&map,&emp4.id)));
+    ASSERT(0 == strcmp(emp4.name,get(&map,&emp4.id)));
+    disposeMap(&map);
 };

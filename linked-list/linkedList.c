@@ -9,15 +9,17 @@ List* create(){
     return list;
 }
 
-int insertInBetween(List *list,Node *nodeToInsert,Node *node,void *data){
+int insertInBetween(List *list,Node *nodeToInsert,Node *node){
     nodeToInsert->next = node->next;
     node->next = nodeToInsert;
     nodeToInsert->previous = node;
     list->numberOfElements++;
     return 1;
 }
-int insertAtFirst(List *list, Node *nodeToInsert,void *data){
+int insertAtFirst(List *list, Node *nodeToInsert){
     nodeToInsert->next = list->head;
+    if(list->head)
+        list->head->previous = nodeToInsert;
     list->head = nodeToInsert;
     list->numberOfElements++;
     return 1;
@@ -31,10 +33,10 @@ int insert(List *list, int index, void *data){
         return 0;
     nodeToInsert->data = data; 
     if(index == 0)
-        return insertAtFirst(list, nodeToInsert,data);
+        return insertAtFirst(list, nodeToInsert);
     for(i = 0; i<index-1; i++)
         node = node->next;
-    return insertInBetween(list, nodeToInsert, node, data);
+    return insertInBetween(list, nodeToInsert, node);
     return 1;
 };
 
