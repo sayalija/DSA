@@ -19,4 +19,5 @@ typedef struct{
 
 BSearchTree create(Comparator* cmp);
 int insertNode(BSearchTree* bst,void* dataToInsert);
+int deleteNode(BSearchTree* bst,void* dataToDelete);
 Children getChildren(BSearchTree* bst,void* data);

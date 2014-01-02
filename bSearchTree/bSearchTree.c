@@ -13,19 +13,19 @@ Node* createNode(){
 	return node;
 }
 
-Node* traverse(BSearchTree* bst, Node* current, void* dataToInsert){
-	int compareResult = bst->compare(current->data, dataToInsert);
+Node* traverse(BSearchTree* bst, Node* current, void* data){
+	int compareResult = bst->compare(current->data, data);
 	if(0 == compareResult)
 		return current;
 	else if(0 < compareResult){
 		if(NULL == current->left)
 			return current;
-		return traverse(bst, current->left, dataToInsert);
+		return traverse(bst, current->left, data);
 	}
 	else{
 		if(NULL == current->right)
 			return current;
-		return traverse(bst, current->right, dataToInsert);
+		return traverse(bst, current->right, data);
 	}
 	return current;
 }
@@ -61,4 +61,23 @@ Children getChildren(BSearchTree* bst,void* data){
 	ch.left = dataNode->left != NULL ? dataNode->left->data : NULL;
 	ch.right = dataNode->right != NULL ? dataNode->right->data : NULL;
 	return ch;
+}
+
+int deleteNode(BSearchTree* bst,void* dataToDelete){
+	Node* node;
+	if(NULL == dataToDelete)
+		return 0;
+	if(bst->compare(bst->root->data,dataToDelete) == 0){
+		free(bst->root);
+		return 1;
+	}
+	node = traverse(bst, bst->root, dataToDelete);
+	if(node->left == NULL && node->right == NULL){
+		if(0 == bst->compare(node->parent->left->data,node->data))
+			node->parent->left = NULL;
+		else
+			node->parent->right = NULL;
+		free(node);
+	}
+	return 1;
 }
