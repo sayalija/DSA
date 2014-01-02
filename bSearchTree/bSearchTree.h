@@ -1,4 +1,4 @@
-typedef int (*Comparator)(void* element1, void* element2);
+typedef int (Comparator)(void* element1, void* element2);
 typedef struct Node{
 	void* data;
 	struct Node* parent;
@@ -8,7 +8,8 @@ typedef struct Node{
 
 typedef struct{
 	Node* root;
+	Comparator* compare;
 } BSearchTree;
 
-BSearchTree create(Comparator cmp);
+BSearchTree create(Comparator* cmp);
 int insertNode(BSearchTree* bst,void* dataToInsert);

@@ -49,9 +49,14 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_to_insert_node_in_tree");
+	testStarted("test_to_insert_rootNode_in_tree");
 	setup();
-		test_to_insert_node_in_tree();
+		test_to_insert_rootNode_in_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_to_inserting_same_value_as_of_root_should_fail");
+	setup();
+		test_to_inserting_same_value_as_of_root_should_fail();
 	tearDown();
 	testEnded();
 
