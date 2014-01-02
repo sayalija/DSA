@@ -12,4 +12,5 @@ void test_to_insert_node_in_tree(){
 	int dataToInsert = 3;
 	int res = insertNode(&bst,&dataToInsert);
 	ASSERT(1 == res);
+	ASSERT(*(int*)bst.root->data == dataToInsert);
 }
