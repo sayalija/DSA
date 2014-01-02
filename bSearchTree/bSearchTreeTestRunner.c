@@ -59,6 +59,16 @@ int main(){
 		test_to_inserting_same_value_as_of_root_should_fail();
 	tearDown();
 	testEnded();
+	testStarted("test_to_insert_two_nodes_in_tree");
+	setup();
+		test_to_insert_two_nodes_in_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_to_insert_four_nodes_in_tree");
+	setup();
+		test_to_insert_four_nodes_in_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

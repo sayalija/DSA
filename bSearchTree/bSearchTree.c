@@ -15,6 +15,7 @@ Node* createNode(){
 
 int insertNode(BSearchTree* bst,void* dataToInsert){
 	Node* parent, *nodeToInsert;
+	Node* current = bst->root;
 	nodeToInsert = createNode();
 	nodeToInsert->data = dataToInsert;
 	if( NULL == bst->root){
@@ -23,7 +24,22 @@ int insertNode(BSearchTree* bst,void* dataToInsert){
 		bst->root = nodeToInsert;
 		return 1;
 	}
-	if(0 == bst->compare(bst->root->data, nodeToInsert->data))
-		return 0;
+	while(0 != bst->compare(current->data, nodeToInsert->data)){
+		if(0 > bst->compare(current->data, nodeToInsert->data)){
+			if(NULL == current->left ){
+				current->left = nodeToInsert;
+				return 1;
+			}
+			current = current->left;
+		}
+		else{
+			if(NULL == current->right ){
+				current->right = nodeToInsert;
+				return 1;
+			}
+			current = current->right;
+		}
+	}
+
 	return 0;
 }
