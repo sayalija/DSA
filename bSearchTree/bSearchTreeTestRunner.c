@@ -69,6 +69,11 @@ int main(){
 		test_to_insert_four_nodes_in_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_to_get_the_children_nodes_of_root");
+	setup();
+		test_to_get_the_children_nodes_of_root();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

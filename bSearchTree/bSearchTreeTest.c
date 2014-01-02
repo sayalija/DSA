@@ -1,5 +1,6 @@
 #include "testUtils.h"
 #include "bSearchTree.h"
+#include <stdlib.h>
 
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
@@ -34,6 +35,8 @@ void test_to_insert_two_nodes_in_tree(){
 	insertNode(&bst,&first);
 	res = insertNode(&bst, &second);
 	ASSERT(1 == res);
+	ASSERT(*(int*)bst.root->data == first);
+	ASSERT(*(int*)bst.root->left->data == second);
 }
 
 void test_to_insert_four_nodes_in_tree(){
@@ -44,4 +47,17 @@ void test_to_insert_four_nodes_in_tree(){
 	insertNode(&bst, &third);
 	res = insertNode(&bst, &forth);
 	ASSERT(1 == res);
+}
+
+void test_to_get_the_children_nodes_of_root(){
+	BSearchTree bst = create(compareInt);
+	int first = 7,second = 4,third = 8,res;
+	Children ch;
+	insertNode(&bst,&first);
+	insertNode(&bst, &second);
+	res = insertNode(&bst, &third);
+	ASSERT(1 == res);
+	ch = getChildren(&bst, &first);
+	ASSERT(&second == ch.left);
+	ASSERT(&third == ch.right);
 }

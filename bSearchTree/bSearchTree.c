@@ -13,30 +13,26 @@ Node* createNode(){
 	return node;
 }
 
-int traverse(BSearchTree* bst,Node* current,Node* nodeToInsert){
-	int compareResult = bst->compare(current->data, nodeToInsert->data);
-	while(0 != compareResult){
-		if(0 > compareResult){
-			if(NULL == current->left ){
-				current->left = nodeToInsert;
-				return 1;
-			}
-			current = current->left;
-		}
-		else{
-			if(NULL == current->right ){
-				current->right = nodeToInsert;
-				return 1;
-			}
-			current = current->right;
-		}
+Node* traverse(BSearchTree* bst, Node* current, void* dataToInsert){
+	int compareResult = bst->compare(current->data, dataToInsert);
+	if(0 == compareResult)
+		return current;
+	else if(0 < compareResult){
+		if(NULL == current->left)
+			return current;
+		traverse(bst, current->left, dataToInsert);
 	}
-	return 0;
+	else{
+		if(NULL == current->right)
+			return current;
+		current = traverse(bst, current->right, dataToInsert);
+	}
+	return current;
 }
 
 int insertNode(BSearchTree* bst,void* dataToInsert){
-	Node* parent, *nodeToInsert;
 	Node* current = bst->root;
+	Node* newNode, *nodeToInsert;
 	nodeToInsert = createNode();
 	nodeToInsert->data = dataToInsert;
 	if( NULL == bst->root){
@@ -45,5 +41,23 @@ int insertNode(BSearchTree* bst,void* dataToInsert){
 		bst->root = nodeToInsert;
 		return 1;
 	}
-	return traverse(bst,current,nodeToInsert);
+	if(current->data == dataToInsert)
+		return 0;
+	newNode = traverse(bst,current,dataToInsert);
+	if(newNode->data == dataToInsert)
+		return 0;
+	nodeToInsert->parent = newNode;
+	if(0 < bst->compare(newNode->data,dataToInsert))
+		newNode->left = nodeToInsert;
+	else
+		newNode->right = nodeToInsert;
+	return 1;
+}
+
+Children getChildren(BSearchTree* bst,void* data){
+	Children ch;
+	Node* dataNode = traverse(bst, bst->root ,data);
+	ch.left = dataNode->left != NULL ? dataNode->left->data : NULL;
+	ch.right = dataNode->right != NULL ? dataNode->right->data : NULL;
+	return ch;
 }
