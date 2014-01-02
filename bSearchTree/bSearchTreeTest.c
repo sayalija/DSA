@@ -58,6 +58,33 @@ void test_to_get_the_children_nodes_of_root(){
 	res = insertNode(&bst, &third);
 	ASSERT(1 == res);
 	ch = getChildren(&bst, &first);
-	ASSERT(&second == ch.left);
-	ASSERT(&third == ch.right);
+	ASSERT(second == *(int*)ch.left);
+	ASSERT(third == *(int*)ch.right);
+}
+
+void test_to_get_the_children_of_every_node_inserted(){
+	BSearchTree bst = create(compareInt);
+	int seven = 7,four = 4,eight = 8,three = 3,six = 6;
+	Children ch;
+	insertNode(&bst, &seven);
+	insertNode(&bst, &four);
+	insertNode(&bst, &eight);
+	insertNode(&bst, &three);
+	insertNode(&bst, &six);
+	ch = getChildren(&bst, &seven);
+	ASSERT(four == *(int*)ch.left);
+	ASSERT(eight == *(int*)ch.right);
+	ch = getChildren(&bst, &four);
+	ASSERT(three == *(int*)ch.left);
+	ASSERT(six == *(int*)ch.right);
+}
+
+void test_to_get_no_children_when_no_node_is_present(){
+	BSearchTree bst = create(compareInt);
+	int seven = 7;
+	Children ch;
+	insertNode(&bst, &seven);
+	ch = getChildren(&bst, &seven);
+	ASSERT(NULL == (int*)ch.left);
+	ASSERT(NULL == (int*)ch.right);
 }

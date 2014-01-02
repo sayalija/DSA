@@ -74,6 +74,16 @@ int main(){
 		test_to_get_the_children_nodes_of_root();
 	tearDown();
 	testEnded();
+	testStarted("test_to_get_the_children_of_every_node_inserted");
+	setup();
+		test_to_get_the_children_of_every_node_inserted();
+	tearDown();
+	testEnded();
+	testStarted("test_to_get_no_children_when_no_node_is_present");
+	setup();
+		test_to_get_no_children_when_no_node_is_present();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
