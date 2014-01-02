@@ -38,7 +38,7 @@ void test_to_insert_two_nodes_in_tree(){
 
 void test_to_insert_four_nodes_in_tree(){
 	BSearchTree bst = create(compareInt);
-	int first = 7,second = 4, third = 2,forth = 9,res;
+	int first = 7,second = 4, third = 5,forth = 9,res;
 	insertNode(&bst,&first);
 	insertNode(&bst, &second);
 	insertNode(&bst, &third);
